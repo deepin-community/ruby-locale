@@ -1,0 +1,3 @@
+# This two files come from source gem, so their timestamp does not change.
+ruby-locale: package-contains-timestamped-gzip usr/share/ruby-locale/data/languages.tab.gz
+ruby-locale: package-contains-timestamped-gzip usr/share/ruby-locale/data/regions.tab.gz

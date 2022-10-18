@@ -1,0 +1,105 @@
+ruby-locale (2.1.2-1.1) unstable; urgency=medium
+
+  * Non maintainer upload by the Reproducible Builds team.
+  * No source change upload to rebuild on buildd with .buildinfo files.
+
+ -- Holger Levsen <holger@debian.org>  Mon, 28 Dec 2020 02:01:33 +0100
+
+ruby-locale (2.1.2-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #799050).
+  * Install data files to /usr/share/ruby-locale.
+  * Add lintian-overrides for false positive package-contains-timestamped-gzip.
+  * Add Testsuite entry to debian/control.
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Wed, 23 Sep 2015 11:45:40 +0300
+
+ruby-locale (2.1.0-3) unstable; urgency=medium
+
+  * Team upload.
+  * Rebuild to provide updated rubygems-integration files.
+
+ -- Antonio Terceiro <terceiro@debian.org>  Wed, 15 Oct 2014 15:44:19 -0300
+
+ruby-locale (2.1.0-2) unstable; urgency=medium
+
+  * Rebuild with Breaks: ruby-gettext (<< 3.0.3~) (Closes: #733140).
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Thu, 26 Dec 2013 20:34:37 +0300
+
+ruby-locale (2.1.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Install doc/text/news.md as upstream changelog.
+  * Bump Standards-Version to 3.9.5 (no changes).
+  * Fix debian/copyright to reflect upstream license changes.
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Wed, 25 Dec 2013 13:44:42 +0300
+
+ruby-locale (2.0.9-1) unstable; urgency=low
+
+  * New upstream release (Closes: #690572).
+  * Add previously missed unit tests.
+  * Drop patches, they are included by upstream.
+  * Build against gem2deb >= 0.5.0~ to add ruby2.0 and drop ruby1.8 support.
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Sat, 12 Oct 2013 22:50:41 +0300
+
+ruby-locale (2.0.8-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump Standards-Version to 3.9.4 (no changes).
+  * Remove obsoleted DM-Upload-Allowed.
+  * Update watch file.
+  * Drop transitional packages.
+  * Update Vcs-* fields to use anonscm.debian.org.
+  * Update homepage.
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Sat, 17 Aug 2013 17:55:22 +0300
+
+ruby-locale (2.0.5-6) unstable; urgency=low
+
+  * Fix various bugs with charset handling (Closes: #520181)
+  * Fix lintian complaints.
+  * Better package description (thanks to Justin B. Rye).
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Tue, 09 Oct 2012 22:33:28 +0300
+
+ruby-locale (2.0.5-5) unstable; urgency=low
+
+  * Team upload.
+  * Bump build dependency on gem2deb to >= 0.3.0~.
+
+ -- Cédric Boutillier <cedric.boutillier@gmail.com>  Sat, 30 Jun 2012 16:21:58 +0200
+
+ruby-locale (2.0.5-4) unstable; urgency=low
+
+  * Bugfix release, fixes are for:
+    - environmental variable LANGUAGE exists, but
+      isn't set (Closes: #670320)
+    - Locale.current= can't accept value from previuos
+      call to Locale.current (Closes: #600713)
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Thu, 26 Apr 2012 21:27:28 +0300
+
+ruby-locale (2.0.5-3) unstable; urgency=low
+
+  * Switch to gem2deb-based packaging.
+    - source and binary packages renamed to ruby-locale
+    - transitional packages added
+    - source format changed to 3.0 (quilt)
+  * Fix SecurityError under ruby1.9.1 and $SAFE>=1
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Wed, 14 Mar 2012 20:57:38 +0300
+
+liblocale-ruby (2.0.5-2) unstable; urgency=low
+
+  * Fix build-depends; add ruby1.9.1 (Closes: #571370)
+
+ -- Tatsuki Sugiura <sugi@nemui.org>  Thu, 18 Feb 2010 21:13:45 +0900
+
+liblocale-ruby (2.0.5-1) unstable; urgency=medium
+
+  * Initial release (Closes: #570367)
+
+ -- Tatsuki Sugiura <sugi@nemui.org>  Thu, 18 Feb 2010 20:50:05 +0900

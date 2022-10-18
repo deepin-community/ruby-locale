@@ -1,0 +1,69 @@
+From: Hleb Valoshka <375gnu@gmail.com>
+Date: Tue, 15 Sep 2015 19:25:41 +0300
+Subject: Read data from /usr/share
+
+---
+ lib/locale.rb               | 6 ++++++
+ lib/locale/info/language.rb | 3 ++-
+ lib/locale/info/region.rb   | 3 ++-
+ 3 files changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/lib/locale.rb b/lib/locale.rb
+index d746f33..3ef3c24 100644
+--- a/lib/locale.rb
++++ b/lib/locale.rb
+@@ -42,6 +42,12 @@ module Locale
+     end
+   end
+ 
++  module_function
++  def root #:nodoc:
++    Dir[File.join(File.dirname(__FILE__), '../../../share/ruby-locale'),
++        File.join(File.dirname(__FILE__), 'locale'),
++        '/usr/share/ruby-locale' ].first
++  end
+   # Initialize Locale library. 
+   # Usually, you don't need to call this directly, because
+   # this is called when Locale's methods are called.
+diff --git a/lib/locale/info/language.rb b/lib/locale/info/language.rb
+index 45d25ce..03e7113 100644
+--- a/lib/locale/info/language.rb
++++ b/lib/locale/info/language.rb
+@@ -11,6 +11,7 @@
+ =end
+ 
+ require 'zlib'
++require 'locale'
+ 
+ module Locale
+ 
+@@ -90,7 +91,7 @@ module Locale
+     @@lang_two_codes = Hash.new
+     @@lang_three_codes = Hash.new
+ 
+-    Zlib::GzipReader.open(File.dirname(__FILE__) + "/../data/languages.tab.gz") do |gz|
++    Zlib::GzipReader.open(File.join(Locale.root, "data/languages.tab.gz")) do |gz|
+       gz.readlines.each do |l|
+         l.force_encoding('UTF-8') if l.respond_to?(:force_encoding)
+         unless l =~ /^\s*$/
+diff --git a/lib/locale/info/region.rb b/lib/locale/info/region.rb
+index daf1924..d8e2611 100644
+--- a/lib/locale/info/region.rb
++++ b/lib/locale/info/region.rb
+@@ -11,6 +11,7 @@
+ =end
+ 
+ require 'zlib'
++require 'locale'
+ 
+ module Locale
+ 
+@@ -37,7 +38,7 @@ module Locale
+     end
+ 
+     @@regions = Hash.new
+-    Zlib::GzipReader.open(File.dirname(__FILE__) + "/../data/regions.tab.gz") do |gz|
++    Zlib::GzipReader.open(File.join(Locale.root,  "data/regions.tab.gz")) do |gz|
+       gz.readlines.each do |l|
+         l.force_encoding('UTF-8') if l.respond_to?(:force_encoding)
+         unless l =~ /^\s*$/
